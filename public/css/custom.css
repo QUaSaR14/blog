@@ -1,0 +1,70 @@
+body{
+	background: url(https://images.unsplash.com/photo-1502860372601-2a663136d5a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1266fd1b0e8dd3330a2b34531cf19c0&auto=format&fit=crop&w=2032&q=80);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: 'Lato', san-serif;
+	color: #ff7733;
+}	
+
+html{
+	height: 100%;
+}
+
+hr{
+	width: 40%;
+	background-color: #4d4d4d;
+}
+
+
+#content{
+	text-align: center;
+	padding-top: 25%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+			     0px 8px 13px rgba(0,0,0,0.1),
+			     0px 18px 23px rgba(0,0,0,0.1);
+
+}
+
+h1{
+	font-size: 4.5em;
+	font-weight: 700;
+}
+
+.navbar-default .navbar-brand{
+	color: #3399ff;
+}
+
+.navbar-default{
+	background-color: transparent;
+}
+
+.btn-default {
+    color: #e6ffff;
+    background-color: transparent;
+    border-color: #ccc;
+}
+
+.btn-default:hover{
+	background-color: #ff9999;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #63c0c4;
+   /* background-color:  #63c0c4;*/
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: 	  #b26b52;
+    background-color: 	  #deffff;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: 	  #555;
+    /*background-color: 	  #deffff;*/
+   /*     background-image: url(https://images.unsplash.com/photo-1535578195295-f2329b3cdb8d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf0d7860f5965963c9fc860d92b14922&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+   /* background-image: url(https://images.unsplash.com/photo-1444069265785-78ef227de54f?ixlib=rb-0.3.5&s=7b9c369e5710e50ee82105965b3ad6d1&auto=format&fit=crop&w=1085&q=80);
+    background-size: cover;*/
+}
