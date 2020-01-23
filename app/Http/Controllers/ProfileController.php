@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Session;
+use File;
 
 class ProfileController extends Controller
 {
@@ -27,49 +28,12 @@ class ProfileController extends Controller
 
         if(Hash::check($request->password, $user->password))
         {
-            // if(Auth::user()->email == request('email')) {
-            
-            //     $this->validate(request(), [
-            //             'name' => ['required', 'string', 'max:255'],
-            //             // 'dob' => ['required', 'date'],
-            //             // 'phone' => ['required', 'numeric', 'digits:10' ],
-            //             // 'address' => ['required', 'string', 'max:100'],
-            //             // 'image' => ['required', 'image', 'mimes:jpg,jpeg,png,svg', 'max:4096'],
-            //         ]);
-            //         $user->name = request('name');
-            //         // $user->dob = request('dob');
-            //         // $user->phone = request('phone');
-            //         // $user->address = request('address');
-            //         // $user->image = request('image');
-                
-            // }
-            // else{
-                
-            // $this->validate(request(), [
-            //         'name' => 'required',
-            //         //'email' => 'required|email|unique:users',
-            //         // 'email' => 'email|required|unique:users,email,'.$this->segment(2),
-            //         // 'password' => 'required|min:6|confirmed'
-            //     ]);
-            //     $user->name = request('name');
-            //     // $user->email = request('email');
-            //     // $user->password = bcrypt(request('password'));
-            //     $user->save();
-            //     return back();  
-                
-            // } 
-            $this->validate(request(), [
-                'name' => 'required|string|max:50',
-                'email' => 'required|email|unique:users',
-                'dob' => 'required|date',
-                'phone' => 'required|numeric|digits:10',
-                'address' => 'required|string|max:100',
-                'hindi_name' => 'required|string|max:300',
-            ]);
-
-            // check if new image is uploaded
             if($request->hasFile('image'))
             {
+                $oldPic = public_path("/images/{$user->image}");
+                if(File::exists($oldPic)) {
+                    unlink($oldPic);
+                }
                 $profileUpload = request()->file('image');
                 $profilePicName = time() . '.' . $profileUpload->getClientOriginalExtension();
                 $avatarPath = public_path('/images/');
@@ -77,13 +41,68 @@ class ProfileController extends Controller
                 $user->image = '/images/' . $profilePicName;
                 $user->save();
             }
+            if(Auth::user()->email == request('email')) {
+            
+                $this->validate(request(), [
+                        'name' => ['required', 'string', 'max:50'],
+                        'dob' => ['required', 'date'],
+                        'phone' => ['required', 'numeric', 'digits:10' ],
+                        'address' => ['required', 'string', 'max:100'],
+                        'hindi_name' => ['required', 'string', 'max:200'],
+                    ]);
+                    
+                $user->name = $request->name;
+                $user->dob = $request->dob;
+                $user->phone = $request->phone;
+                $user->address = $request->address;
+                $user->hindi_name = $request->hindi_name;
+                
+            }
+            else{
+                
+                $this->validate(request(), [
+                    'name' => ['required', 'max:50'],
+                    'email' => 'email|required|unique:users,email',
+                    'dob' => ['required', 'date'],
+                    'phone' => ['required', 'numeric', 'digits:10' ],
+                    'address' => ['required', 'string', 'max:100'],
+                    'hindi_name' => ['required', 'string', 'max:200'],
+                ]);
+            
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->dob = $request->dob;
+                $user->phone = $request->phone;
+                $user->address = $request->address;
+                $user->hindi_name = $request->hindi_name;
+                
+            } 
+            // $this->validate(request(), [
+            //     'name' => 'required|string|max:50',
+            //     'email' => 'required|email|unique:users',
+            //     'dob' => 'required|date',
+            //     'phone' => 'required|numeric|digits:10',
+            //     'address' => 'required|string|max:100',
+            //     'hindi_name' => 'required|string|max:300',
+            // ]);
 
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->dob = $request->dob;
-            $user->phone = $request->phone;
-            $user->address = $request->address;
-            $user->hindi_name = $request->hindi_name;
+            // check if new image is uploaded
+            // if($request->hasFile('image'))
+            // {
+            //     $profileUpload = request()->file('image');
+            //     $profilePicName = time() . '.' . $profileUpload->getClientOriginalExtension();
+            //     $avatarPath = public_path('/images/');
+            //     $profileUpload->move($avatarPath, $profilePicName);
+            //     $user->image = '/images/' . $profilePicName;
+            //     $user->save();
+            // }
+
+            // $user->name = $request->name;
+            // $user->email = $request->email;
+            // $user->dob = $request->dob;
+            // $user->phone = $request->phone;
+            // $user->address = $request->address;
+            // $user->hindi_name = $request->hindi_name;
 
             $user->save();
             Session::flash('success', 'Profile updated successfully .... ');
