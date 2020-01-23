@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder='Eg. John Doe' required quillpad="disable|hindi" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder='Eg. John Doe' required quillpad="disable|hindi" autofocus autocomplete="name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" max="2099-12-01" min="1900-01-01" required >
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" max="2099-12-01" min="1900-01-01" required autocomplete="dob">
 
                                 @error('dob')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
                             
                             <div class="col-md-6">
-                                <input type="number" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Eg. 1234567890" maxlength="10" required/>
+                                <input type="number" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Eg. 1234567890" maxlength="10" required >
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
                             
                             <div class="col-md-6">
-                                <input type='textarea' id="address" class="form-control @error('address') is-invalid @enderror" name='address' maxlength="100" placeholder="Eg. 445 Eden Road, Mount Eden, Auckland" required />
+                                <input type='textarea' id="address" class="form-control @error('address') is-invalid @enderror" name='address' maxlength="100" placeholder="Eg. 445 Eden Road, Mount Eden, Auckland" required >
                                 <!-- <textarea class="form-control" id='address' rows="4" maxlength='100'></textarea> -->
 
                                 @error('address')
@@ -86,7 +86,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Profile Pic') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required>
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="new-password">
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
                             <label for="hindi_name" class="col-md-4 col-form-label text-md-right">{{ __('Hindi Name') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="hindi_name" type="text" class="keyboard form-control @error('password') is-invalid @enderror" placeholder="Eg. जॉन डो" name="hindi_name" required>
+                                <input id="hindi_name" type="text" class="keyboard form-control @error('password') is-invalid @enderror" placeholder="Eg. जॉन डो" name="hindi_name" required autocomplete="new-password">
 
                                 @error('hindi_name')
                                     <span class="invalid-feedback" role="alert">
@@ -114,7 +114,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" pattern="[a-zA-Z0-9]+" placeholder='********' name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder='********' name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -128,7 +128,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" pattern="[a-zA-Z0-9]+" placeholder='********' required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder='********' required autocomplete="new-password">
                             </div>
                         </div>
 

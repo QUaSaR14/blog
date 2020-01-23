@@ -10,7 +10,8 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
@@ -29,12 +30,55 @@
     <script src="https://mottie.github.com/Keyboard/js/jquery.keyboard.js"></script>
     <script src="https://mottie.github.com/Keyboard/layouts/keyboard-layouts-greywyvern.js"></script>
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Custom style -->
     <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+            background: url(https://cdn.pixabay.com/photo/2019/12/13/09/46/umbrella-4692572_1280.jpg);
+ 
+            /* background: url(https://images.unsplash.com/photo-1578540244871-974894517b7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=925&q=80); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* font-family: 'Lato', san-serif; */
+            /* color: #ff7733; */
+            font-weight: '300';
+            color: #f5f6fa;
+        }	
+
+
+        .navbar-default{
+            background-color: transparent;
+            border-color: #7ed6df;
+        }
+
+        .navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+            color: #3399ff;
+        }
+
+        .btn-link {
+            font-weight: 400;
+            color: #00a8ff;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+           color: aqua;
+        }
+
+        .card-header , .col-form-label {
+            color: #535c68;
+        }
+
+
         /* Keyboard style */
         .ui-keyboard {
             background: "#636e72";
@@ -52,42 +96,36 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name') }}
+                   <i class="fab fa-superpowers"></i> {{ config('app.name') }}
+                   <!-- {{ config('app.name') }} -->
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }} <i class="fas fa-sign-in-alt"></i></a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }} <i class="fas fa-user-plus"></i></a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item" >
-                                <a href="#" class="nav-link">{{ Auth::user()->name }}</a>
+                                <a href="/home" class="nav-link">{{ Auth::user()->name }} <i class="fas fa-user"></i></a>
                             </li>
                             <li class="nav-item" style=" padding-left: 10px; ">
                                     <a href="{{ route('logout') }}" class="nav-link"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }} <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        {{ __('Logout') }} <i class="fas fa-sign-out-alt"></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -100,6 +138,8 @@
                 </div>
             </div>
         </nav>
+
+
 
         <main class="py-4">
             <div class="container">

@@ -30,18 +30,18 @@
                             <h6> {{Auth::user()->address}} <i class="fa fa-map-marker"></i></h6>
                             <h6> Date-of-Birth: {{Auth::user()->dob}} <i class="fa fa-birthday-cake"></i></h6>
                             <h6> Phone Number: {{Auth::user()->phone}} <i class="fa fa-phone"></i></h6>
-                            <a href="{{route('users.edit')}}">Edit <i class="fa fa-edit"></i></a>
+                            <a href="{{route('users.edit')}}" class="btn btn-link">Edit <i class="fa fa-edit"></i></a>
                         </div>
                         <div class="col-md-6">
                             <h6>Recent badges</h6>
-                            <a href="#" class="badge badge-dark badge-pill">html5</a>
-                            <a href="#" class="badge badge-dark badge-pill">react</a>
-                            <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                            <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                            <a href="#" class="badge badge-dark badge-pill">css3</a>
-                            <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                            <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
+                            <a href="#" class="badge badge-light badge-pill">html5</a>
+                            <a href="#" class="badge badge-light badge-pill">react</a>
+                            <a href="#" class="badge badge-light badge-pill">codeply</a>
+                            <a href="#" class="badge badge-light badge-pill">angularjs</a>
+                            <a href="#" class="badge badge-light badge-pill">css3</a>
+                            <a href="#" class="badge badge-light badge-pill">jquery</a>
+                            <a href="#" class="badge badge-light badge-pill">bootstrap</a>
+                            <a href="#" class="badge badge-light badge-pill">responsive-design</a>
                             <hr>
                             <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
                             <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
@@ -54,7 +54,7 @@
 
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="{{Auth::user()->image}}" class="mx-auto img-fluid img-circle d-block" alt="avatar" >
+            <img src="{{Auth::user()->image}}" class="mx-auto img-fluid img-circle d-block" alt="avatar" style=" border-radius: 50%; ">
         </div>
     </div>
 </div>

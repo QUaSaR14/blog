@@ -10,13 +10,13 @@
 
     <style>
         body{
-            background: url(https://images.unsplash.com/photo-1502860372601-2a663136d5a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1266fd1b0e8dd3330a2b34531cf19c0&auto=format&fit=crop&w=2032&q=80);
-            /* background: url(https://images.unsplash.com/photo-1578540244871-974894517b7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=925&q=80); */
+            /* background: url(https://images.unsplash.com/photo-1502860372601-2a663136d5a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1266fd1b0e8dd3330a2b34531cf19c0&auto=format&fit=crop&w=2032&q=80); */
+            background: url(https://cdn.pixabay.com/photo/2020/01/15/20/37/sea-4768869_1280.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             font-family: 'Lato', san-serif;
-            color: #ff7733;
+            color: #eb2f06;
         }	
 
         html{
