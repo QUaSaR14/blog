@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:100'],
             'image' => ['required', 'image', 'mimes:jpg,jpeg,png,svg', 'max:4096'],
             'hindi_name' => ['required', 'string', 'max:300'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'],
             'captcha' => 'required|captcha'
         ]);
     }
